@@ -1,41 +1,32 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
-export const createVendor = async (req: Request, res: Response) => {
-  try {
-    res.status(201).json({
-      status: "success",
-      data: {
-        message: "to be implemented",
-      },
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
+// Local Imports
+import catchAsync from "../middleware/catchAsync";
 
-export const getVendors = async (req: Request, res: Response) => {
-  try {
-    res.status(200).json({
-      status: "success",
-      data: {
-        message: "to be implemented",
-      },
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
+export const createVendor = catchAsync(async (req: Request, res: Response) => {
+  res.status(201).json({
+    status: "success",
+    data: {
+      message: "to be implemented",
+    },
+  });
+});
 
-export const getVendorById = async (req: Request, res: Response) => {
-  try {
-    res.status(200).json({
-      status: "success",
-      data: {
-        message: "to be implemented",
-        id: req.params.id,
-      },
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
+export const getVendors = catchAsync(async (req: Request, res: Response) => {
+  res.status(200).json({
+    status: "success",
+    data: {
+      message: "to be implemented",
+    },
+  });
+});
+
+export const getVendorById = catchAsync(async (req: Request, res: Response) => {
+  res.status(200).json({
+    status: "success",
+    data: {
+      message: "to be implemented",
+      id: req.params.id,
+    },
+  });
+});
