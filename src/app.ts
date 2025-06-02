@@ -1,5 +1,8 @@
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
 import cors from "cors";
+
+// Local Imports.
+import { AdminRouter, healthCheckRouter } from "./routes";
 
 // Initiate the application.
 const app: Application = express();
@@ -10,8 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Mount Routes.
-app.get("/", (req: Request, res: Response) => {
-  res.send("Food Ordering App API is Running!");
-});
+app.use("/api/v1/admin", AdminRouter);
+app.use("/api/v1/health", healthCheckRouter);
 
 export default app;
